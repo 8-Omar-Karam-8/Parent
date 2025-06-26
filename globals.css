@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.75rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background: hsl(var(--background));
+    min-height: 100vh;
+  }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom scrollbar styles */
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-thumb-white\/20::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+  }
+  
+  .scrollbar-track-transparent::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+}
+
+/* Subtle animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes gentle-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-gentle-pulse {
+  animation: gentle-pulse 3s ease-in-out infinite;
+}
+
+/* Professional text utilities */
+.professional-text {
+  color: hsl(var(--primary));
+}
+
+.professional-text-muted {
+  color: hsl(var(--muted-foreground));
+}
+
+/* Card subtle effects */
+.card-subtle {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease;
+}
+
+.card-subtle:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Light mode specific styles */
+.light .card-subtle {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.light .card-subtle:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon background adaptations */
+.icon-bg-blue {
+  @apply bg-blue-100 dark:bg-blue-900/20;
+}
+
+.icon-bg-green {
+  @apply bg-green-100 dark:bg-green-900/20;
+}
+
+.icon-bg-purple {
+  @apply bg-purple-100 dark:bg-purple-900/20;
+}
+
+.icon-bg-orange {
+  @apply bg-orange-100 dark:bg-orange-900/20;
+}
+
+.icon-bg-cyan {
+  @apply bg-cyan-100 dark:bg-cyan-900/20;
+}
+
+.icon-bg-pink {
+  @apply bg-pink-100 dark:bg-pink-900/20;
+}
+
+.icon-bg-yellow {
+  @apply bg-yellow-100 dark:bg-yellow-900/20;
+}
+
+.icon-bg-red {
+  @apply bg-red-100 dark:bg-red-900/20;
+}
+
+.icon-bg-gray {
+  @apply bg-gray-100 dark:bg-gray-900/20;
+}
+
+/* Theme-aware borders */
+.border-theme-blue {
+  @apply border-blue-200 dark:border-blue-800;
+}
+
+.border-theme-green {
+  @apply border-green-200 dark:border-green-800;
+}
+
+.border-theme-purple {
+  @apply border-purple-200 dark:border-purple-800;
+}
+
+.border-theme-orange {
+  @apply border-orange-200 dark:border-orange-800;
+}
+
+.border-theme-cyan {
+  @apply border-cyan-200 dark:border-cyan-800;
+}
+
+.border-theme-pink {
+  @apply border-pink-200 dark:border-pink-800;
+}
+
+.border-theme-yellow {
+  @apply border-yellow-200 dark:border-yellow-800;
+}
+
+.border-theme-red {
+  @apply border-red-200 dark:border-red-800;
+}
+
+.border-theme-gray {
+  @apply border-gray-200 dark:border-gray-800;
+}
